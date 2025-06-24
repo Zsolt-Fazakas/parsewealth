@@ -405,7 +405,7 @@ export default function TransactionTable({ transactions }) {
                           className="cursor-pointer"
                           onClick={() =>
                             router.push(
-                              `/transactions/create?id=${transaction.id}`
+                              `/transaction/create?edit=${transaction.id}`
                             )
                           }
                         >
