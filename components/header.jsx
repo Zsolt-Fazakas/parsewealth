@@ -33,12 +33,12 @@ export default async function Header() {
               </Button>
             </Link>
             <Link
-              href="/transaction"
+              href="/transaction/create"
               className="text-gray-600 hover:text-blue-600 flex items-center gap-2"
             >
               <Button>
                 <PenBoxIcon size={18} />
-                <span className="hidden md:inline">Add Transactions</span>
+                <span className="hidden md:inline">Add Transaction</span>
               </Button>
             </Link>
           </SignedIn>

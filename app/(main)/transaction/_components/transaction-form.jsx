@@ -26,7 +26,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
-// import { ReceiptScanner } from "./recipt-scanner";
+import { ReceiptScanner } from "./receipt-scanner";
 import { createTransaction, updateTransaction } from "@/actions/transaction";
 import CreateAccountDrawer from "@/components/create-account-drawer";
 
@@ -100,8 +100,20 @@ export function AddTransactionForm({
       if (scannedData.description) {
         setValue("description", scannedData.description);
       }
+
+      setValue("type", "EXPENSE");
+
       if (scannedData.category) {
-        setValue("category", scannedData.category);
+        const matchingCategory = categories.find(
+          (cat) =>
+            cat.id === scannedData.category ||
+            cat.name.toLowerCase() === scannedData.category.toLowerCase() ||
+            cat.id.toLowerCase() === scannedData.category.toLowerCase()
+        );
+
+        if (matchingCategory) {
+          setValue("category", matchingCategory.id);
+        }
       }
       toast.success("Receipt scanned successfully");
     }
@@ -129,8 +141,7 @@ export function AddTransactionForm({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      {/* Receipt Scanner - Only show in create mode
-      {!editMode && <ReceiptScanner onScanComplete={handleScanComplete} />} */}
+      {!editMode && <ReceiptScanner onScanComplete={handleScanComplete} />}
 
       <div className="space-y-2">
         <label className="text-sm font-medium">Type</label>
@@ -150,7 +161,6 @@ export function AddTransactionForm({
           <p className="text-sm text-red-500">{errors.type.message}</p>
         )}
       </div>
-
       <div className="grid gap-6 md:grid-cols-2">
         <div className="space-y-2">
           <label className="text-sm font-medium">Amount</label>
@@ -195,12 +205,11 @@ export function AddTransactionForm({
           )}
         </div>
       </div>
-
       <div className="space-y-2">
         <label className="text-sm font-medium">Category</label>
         <Select
           onValueChange={(value) => setValue("category", value)}
-          defaultValue={getValues("category")}
+          value={watch("category")}
         >
           <SelectTrigger>
             <SelectValue placeholder="Select category" />
@@ -217,7 +226,6 @@ export function AddTransactionForm({
           <p className="text-sm text-red-500">{errors.category.message}</p>
         )}
       </div>
-
       <div className="space-y-2">
         <label className="text-sm font-medium">Date</label>
         <Popover>
@@ -249,7 +257,6 @@ export function AddTransactionForm({
           <p className="text-sm text-red-500">{errors.date.message}</p>
         )}
       </div>
-
       <div className="space-y-2">
         <label className="text-sm font-medium">Description</label>
         <Input placeholder="Enter description" {...register("description")} />
@@ -257,7 +264,6 @@ export function AddTransactionForm({
           <p className="text-sm text-red-500">{errors.description.message}</p>
         )}
       </div>
-
       <div className="flex flex-row items-center justify-between rounded-lg border p-4">
         <div className="space-y-0.5">
           <label className="text-base font-medium">Recurring Transaction</label>
@@ -270,7 +276,6 @@ export function AddTransactionForm({
           onCheckedChange={(checked) => setValue("isRecurring", checked)}
         />
       </div>
-
       {isRecurring && (
         <div className="space-y-2">
           <label className="text-sm font-medium">Recurring Interval</label>
@@ -295,8 +300,7 @@ export function AddTransactionForm({
           )}
         </div>
       )}
-
-      <div className="flex gap-4">
+      <div className="flex flex-col gap-4">
         <Button
           type="button"
           variant="outline"
