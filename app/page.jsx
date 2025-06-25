@@ -14,12 +14,12 @@ export default function Home() {
   return (
     <div className="mt-40">
       <HeroSection />
-      <section className="py-20 bg-blue-50">
+      <section className="py-20 bg-[#f0fdfa]">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {statsData.map((statData, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">
+                <div className="text-4xl font-bold text-[#006d75] mb-2">
                   {statData.value}
                 </div>
                 <div className="text-gray-600">{statData.label}</div>
@@ -47,13 +47,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 bg-blue-50">
+      <section className="py-20 bg-[#f0fdfa]">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-16">How it works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {howItWorksData.map((step, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-[#ccfbf1] rounded-full flex items-center justify-center mx-auto mb-6">
                   {step.icon}
                 </div>
                 <h3 className="text-lg font-semibold mb-4">{step.title}</h3>
@@ -96,19 +96,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 bg-blue-600">
+      <section className="py-20 bg-[#006d75]">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Ready to Take Control of Your Finances?
           </h2>
-          <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-[#ccfbf1] mb-8 max-w-2xl mx-auto">
             Join thousands of users who have transformed their finances smarter
             with ParseWealth.
           </p>
           <Link href="/sign-in">
             <Button
               size="lg"
-              className="bg-white text-blue-600 hover:bg-blue-50 animate-bounce"
+              className="bg-white text-[#006d75] hover:bg-[#f0fdfa] animate-bounce"
             >
               Start Free Trial
             </Button>

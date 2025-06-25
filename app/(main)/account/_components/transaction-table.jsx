@@ -191,7 +191,7 @@ export default function TransactionTable({ transactions }) {
   return (
     <div className="space-y-4">
       {deleteLoading && (
-        <BarLoader className="mt-4" width={"100%"} color="#9333ea" />
+        <BarLoader className="mt-4" width={"100%"} color="#006d75" />
       )}
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="relative flex-1">
@@ -360,7 +360,7 @@ export default function TransactionTable({ transactions }) {
                           <TooltipTrigger>
                             <Badge
                               variant="outline"
-                              className="gap-1 bg-purple-100 text-purple-700 hover:bg-purple-200"
+                              className="gap-1 bg-[#ccfbf1] text-[#006d75] hover:bg-[#99f6e4]"
                             >
                               <RefreshCcw className="w-3 h-3" />
                               {

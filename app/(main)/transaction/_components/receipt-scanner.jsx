@@ -48,7 +48,7 @@ export const ReceiptScanner = ({ onScanComplete }) => {
       />
       <Button
         type="button"
-        className="w-full h-10 bg-gradient-to-br from-orange-500 via-pink-500 to-purple-500 animate-gradient hover:opacity-90 transition-opacity text-white hover:text-white"
+        className="w-full h-10 bg-gradient-to-br from-[#065f46] via-[#047857] to-[#064e3b] animate-gradient hover:opacity-90 transition-opacity text-white hover:text-white"
         onClick={() => fileInputRef.current.click()}
         disabled={scanLoading}
       >

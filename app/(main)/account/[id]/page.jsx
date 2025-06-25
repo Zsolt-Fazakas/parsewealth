@@ -39,12 +39,12 @@ export default async function AccountsPage(props) {
       </div>
 
       <Suspense
-        fallback={<BarLoader className="mt-4" width={"100%"} color="#9333ea" />}
+        fallback={<BarLoader className="mt-4" width={"100%"} color="#006d75" />}
       >
         <AccountChart transactions={transactions} />
       </Suspense>
       <Suspense
-        fallback={<BarLoader className="mt-4" width={"100%"} color="#9333ea" />}
+        fallback={<BarLoader className="mt-4" width={"100%"} color="#006d75" />}
       >
         <TransactionTable transactions={transactions} />
       </Suspense>

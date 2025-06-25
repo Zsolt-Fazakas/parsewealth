@@ -25,7 +25,7 @@ export default async function Header() {
           <SignedIn>
             <Link
               href="/dashboard"
-              className="text-gray-600 hover:text-blue-600 flex items-center gap-2"
+              className="text-gray-600 hover:text-[#006d75] flex items-center gap-2"
             >
               <Button variant="outline">
                 <LayoutDashboardIcon size={18} />
@@ -34,7 +34,7 @@ export default async function Header() {
             </Link>
             <Link
               href="/transaction/create"
-              className="text-gray-600 hover:text-blue-600 flex items-center gap-2"
+              className="text-gray-600 hover:text-[#006d75] flex items-center gap-2"
             >
               <Button>
                 <PenBoxIcon size={18} />
