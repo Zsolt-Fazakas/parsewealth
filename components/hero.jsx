@@ -49,7 +49,7 @@ export default function HeroSection() {
         <div className="hero-image-wrapper">
           <div ref={imageRef} className="hero-image">
             <Image
-              src="/banner.jpeg"
+              src="/banner.png"
               alt="Dashboard preview"
               width={1280}
               height={720}
